@@ -1,0 +1,27 @@
+apiversion: apps/v1
+kind: ReplicaSet
+apiVersion: extensions/v1beta1
+metadata:
+  name: macys-replicaset
+  labels:
+    app: macys
+
+spec:
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: macys
+    spec:
+        containers:
+          - name: nginx
+            image: nginx
+
+
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: macys
+
+
